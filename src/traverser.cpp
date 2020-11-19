@@ -2,39 +2,36 @@
 
 #include "traverser.h"
 
-Traverser::Traverser(Graph graph) : graph(graph) {
+Traverser::Traverser(Graph graph) : graph(graph) { }
+
+DfsTraverser::DfsTraverser(Graph graph) : Traverser(graph)
+{
 }
 
-DfsTraverser::DfsTraverser(Graph graph) : Traverser(graph) {
-    this->nodesStack = stack<int>();
-    this->exploredNodes = set<int>();
-}
-
-void DfsTraverser::dfsTraverse(int startNode, NodeVisitor *visitor) {
+void DfsTraverser::dfs(int startNode, NodeVisitor *visitor)
+{
     // mark node as explored and visit it
-    nodesStack.push(startNode);
-    while (!nodesStack.empty()) {
-        int nodeId = nodesStack.top();
-        nodesStack.pop();
-        // mark node as explored and visit it
-        exploredNodes.insert(nodeId);
-        visitor->visit(nodeId);
-        // for each edge
-        for (int & adjNodeIt : graph.getNode(nodeId).getAdjNodes()) {
-            // if adj node is unexplored
-            if (exploredNodes.find(adjNodeIt) == exploredNodes.end()) {
-                exploredNodes.insert(adjNodeIt);
-                nodesStack.push(adjNodeIt);
-            }
+    graph.getNode(startNode)->markVisited();
+    visitor->visit(startNode);
+    // for each edge
+    for (const auto adjNodeIt : graph.getNode(startNode)->getAdjNodes())
+    {
+        // if adj node is unexplored
+        if (!graph.getNode(adjNodeIt)->isVisited())
+        {
+            dfs(adjNodeIt, visitor);
         }
     }
+    visitor->leave(startNode);
 }
 
-void DfsTraverser::traverse(NodeVisitor *visitor) {
-    for (const auto &node : graph.getAllNodes()) {
-        if (this->exploredNodes.find(node.first) == this->exploredNodes.end())
+void DfsTraverser::traverse(NodeVisitor *visitor)
+{
+    for (const auto &node : graph.getAllNodes())
+    {
+        if (!graph.getNode(node.first)->isVisited())
         {
-            dfsTraverse(node.first, visitor);
+            dfs(node.first, visitor);
         }
     }
 }

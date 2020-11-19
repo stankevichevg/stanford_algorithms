@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.17)
-set(TARGET_NAME stanford_algorithms)
 
-set(CMAKE_CXX_STANDARD 11)
+project (stanford_algorithms)
+
+set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB SOURCES "src/*.cpp")
-add_executable (stanford_algorithms ${SOURCES})
 
-project (${TARGET_NAME})
-
-target_include_directories(${TARGET_NAME} PRIVATE include)
+add_executable (scc ${SOURCES} assignments/scc.cpp)
+target_include_directories(scc PRIVATE include)

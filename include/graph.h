@@ -15,9 +15,10 @@ public:
     Graph(bool directed);
     void addNode(int id);
     void addEdge(int s, int e);
-    Node getNode(int id);
+    Node * getNode(int id);
     map<int, Node> getAllNodes();
     Graph revert();
+    void markAllNodesNotVisited();
 };
 
 #endif

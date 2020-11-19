@@ -30,10 +30,10 @@ void Graph::addEdge(int s, int e)
     }
 }
 
-Node Graph::getNode(int id)
+Node * Graph::getNode(int id)
 {
     checkNodeExists(id);
-    return nodes.find(id)->second;
+    return & nodes.find(id)->second;
 }
 
 map<int, Node> Graph::getAllNodes() {
@@ -57,4 +57,11 @@ Graph Graph::revert()
         }
     }
     return revertedGraph;
+}
+
+void Graph::markAllNodesNotVisited() {
+    for (const auto &node : nodes)
+    {
+        getNode(node.first)->markNotVisited();
+    }
 }

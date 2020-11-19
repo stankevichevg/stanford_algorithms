@@ -9,6 +9,7 @@
 class NodeVisitor {
 public:
     virtual void visit(int nodeId) = 0;
+    virtual void leave(int nodeId) = 0;
 };
 
 class Traverser {
@@ -20,11 +21,8 @@ public:
 };
 
 class DfsTraverser : public Traverser {
-private:
-    stack<int> nodesStack;
-    set<int> exploredNodes;
 protected:
-    void dfsTraverse(int startNode, NodeVisitor *visitor);
+    void dfs(int startNode, NodeVisitor *visitor);
 public:
     DfsTraverser(Graph graph);
     void traverse(NodeVisitor *visitor) override;
