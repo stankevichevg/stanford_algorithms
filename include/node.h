@@ -10,6 +10,7 @@ class Node {
 private:
     vector<Edge> outputEdges;
     bool visited = false;
+    int pathLength = 0;
 public:
     Node();
     void addOutputEdge(const Edge& edge);
@@ -17,6 +18,9 @@ public:
     void markVisited();
     void markNotVisited();
     bool isVisited();
+    int getPathLength() const;
+    void setPathLength(int pathLength);
+    void resetState();
 };
 
 #endif

@@ -16,7 +16,9 @@ void Graph::checkNodeExists(int id)
 
 void Graph::addNode(int id)
 {
-    this->nodes[id] = Node();
+    if (nodes.find(id) == nodes.end()) {
+        this->nodes[id] = Node();
+    }
 }
 
 void Graph::addEdge(int s, int e, int length)

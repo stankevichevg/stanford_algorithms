@@ -26,3 +26,16 @@ void Node::markNotVisited() {
 bool Node::isVisited() {
     return visited;
 }
+
+int Node::getPathLength() const {
+    return pathLength;
+}
+
+void Node::setPathLength(int pathLength) {
+    Node::pathLength = pathLength;
+}
+
+void Node::resetState() {
+    markNotVisited();
+    setPathLength(0);
+}

@@ -8,3 +8,6 @@ file(GLOB SOURCES "src/*.cpp")
 
 add_executable (scc ${SOURCES} assignments/scc.cpp)
 target_include_directories(scc PRIVATE include)
+
+add_executable (dijkstra ${SOURCES} assignments/dijkstra.cpp)
+target_include_directories(dijkstra PRIVATE include)

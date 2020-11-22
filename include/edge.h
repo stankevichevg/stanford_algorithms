@@ -1,7 +1,3 @@
-//
-// Created by Станкевич Евгений on 22.11.2020.
-//
-
 #ifndef STANFORD_ALGORITHMS_EDGE_H
 #define STANFORD_ALGORITHMS_EDGE_H
 
