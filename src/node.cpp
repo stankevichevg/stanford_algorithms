@@ -2,17 +2,17 @@
 
 Node::Node()
 {
-    this->adjNodes = vector<int>();
+    this->outputEdges = vector<Edge>();
 }
 
-void Node::addAdjNode(int adjNodeId)
+void Node::addOutputEdge(const Edge& edge)
 {
-    adjNodes.push_back(adjNodeId);
+    outputEdges.push_back(edge);
 }
 
-vector<int> Node::getAdjNodes()
+vector<Edge> Node::getOutputEdges()
 {
-    return adjNodes;
+    return outputEdges;
 }
 
 void Node::markVisited() {

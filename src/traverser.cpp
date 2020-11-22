@@ -14,12 +14,12 @@ void DfsTraverser::dfs(int startNode, NodeVisitor *visitor)
     graph.getNode(startNode)->markVisited();
     visitor->visit(startNode);
     // for each edge
-    for (const auto adjNodeIt : graph.getNode(startNode)->getAdjNodes())
+    for (const auto edge : graph.getNode(startNode)->getOutputEdges())
     {
         // if adj node is unexplored
-        if (!graph.getNode(adjNodeIt)->isVisited())
+        if (!graph.getNode(edge.getEndNode())->isVisited())
         {
-            dfs(adjNodeIt, visitor);
+            dfs(edge.getEndNode(), visitor);
         }
     }
     visitor->leave(startNode);

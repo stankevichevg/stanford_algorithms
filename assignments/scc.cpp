@@ -10,7 +10,7 @@
 
 Graph readGraph(const char* filename)
 {
-    Graph graph = Graph(true);
+    Graph graph = Graph();
 
     for (int i = 1; i <= 875714; i++) {
         graph.addNode(i);

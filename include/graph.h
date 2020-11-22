@@ -7,14 +7,14 @@
 
 class Graph {
 protected:
-    bool directed;
     map<int, Node> nodes;
 protected:
     void checkNodeExists(int id);
 public:
-    Graph(bool directed);
+    Graph();
     void addNode(int id);
     void addEdge(int s, int e);
+    void addEdge(int s, int e, int length);
     Node * getNode(int id);
     map<int, Node> getAllNodes();
     Graph revert();
