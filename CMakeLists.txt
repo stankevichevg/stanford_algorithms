@@ -11,3 +11,6 @@ target_include_directories(scc PRIVATE include)
 
 add_executable (dijkstra ${SOURCES} assignments/dijkstra.cpp)
 target_include_directories(dijkstra PRIVATE include)
+
+add_executable (inversions ${SOURCES} assignments/inversions.cpp)
+target_include_directories(inversions PRIVATE include)
