@@ -14,3 +14,6 @@ target_include_directories(dijkstra PRIVATE include)
 
 add_executable (inversions ${SOURCES} assignments/inversions.cpp)
 target_include_directories(inversions PRIVATE include)
+
+add_executable (median ${SOURCES} assignments/median.cpp)
+target_include_directories(median PRIVATE include)
