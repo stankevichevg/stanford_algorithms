@@ -17,3 +17,6 @@ target_include_directories(inversions PRIVATE include)
 
 add_executable (median ${SOURCES} assignments/median.cpp)
 target_include_directories(median PRIVATE include)
+
+add_executable (quicksort ${SOURCES} assignments/quicksort.cpp)
+target_include_directories(quicksort PRIVATE include)
