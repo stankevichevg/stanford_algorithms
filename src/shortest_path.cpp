@@ -21,7 +21,7 @@ void DijkstraBruteForceCalculator::calculate(int startNodeId)
         int minimum = std::numeric_limits<int>::max();
         for (int nodeId : calculatedNodes) {
             Node* node = graph->getNode(nodeId);
-            for (Edge &edge : node->getOutputEdges())
+            for (Edge &edge : *node->getOutputEdges())
             {
                 if (calculatedNodes.find(edge.getEndNode()) == calculatedNodes.end()) {
                     int dijkstraCriteria = node->getPathLength() + edge.getLength();

@@ -14,7 +14,7 @@ void DfsTraverser::dfs(int startNode, NodeVisitor *visitor)
     graph.getNode(startNode)->markVisited();
     visitor->visit(startNode);
     // for each edge
-    for (const auto edge : graph.getNode(startNode)->getOutputEdges())
+    for (const auto edge : *graph.getNode(startNode)->getOutputEdges())
     {
         // if adj node is unexplored
         if (!graph.getNode(edge.getEndNode())->isVisited())

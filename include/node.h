@@ -9,12 +9,15 @@ using namespace std;
 class Node {
 private:
     vector<Edge> outputEdges;
+    vector<Edge> inputEdges;
     bool visited = false;
     int pathLength = 0;
 public:
     Node();
     void addOutputEdge(const Edge& edge);
-    vector<Edge> getOutputEdges();
+    void addInputEdge(const Edge& edge);
+    vector<Edge> * getOutputEdges();
+    vector<Edge> * getInputEdges();
     void markVisited();
     void markNotVisited();
     bool isVisited();

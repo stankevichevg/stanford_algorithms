@@ -3,6 +3,7 @@
 Node::Node()
 {
     this->outputEdges = vector<Edge>();
+    this->inputEdges = vector<Edge>();
 }
 
 void Node::addOutputEdge(const Edge& edge)
@@ -10,9 +11,19 @@ void Node::addOutputEdge(const Edge& edge)
     outputEdges.push_back(edge);
 }
 
-vector<Edge> Node::getOutputEdges()
+void Node::addInputEdge(const Edge& edge)
 {
-    return outputEdges;
+    inputEdges.push_back(edge);
+}
+
+vector<Edge> * Node::getOutputEdges()
+{
+    return &outputEdges;
+}
+
+vector<Edge> * Node::getInputEdges()
+{
+    return &inputEdges;
 }
 
 void Node::markVisited() {

@@ -13,8 +13,10 @@ protected:
 public:
     Graph();
     void addNode(int id);
+    void removeNode(int id);
     void addEdge(int s, int e);
     void addEdge(int s, int e, int length);
+    void removeEdges(int s, int e);
     Node * getNode(int id);
     map<int, Node> getAllNodes();
     Graph revert();

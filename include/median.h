@@ -1,8 +1,8 @@
-#include <vector>
-#include <queue>
-
 #ifndef STANFORD_ALGORITHMS_MEDIAN_H
 #define STANFORD_ALGORITHMS_MEDIAN_H
+
+#include <vector>
+#include <queue>
 
 using namespace std;
 

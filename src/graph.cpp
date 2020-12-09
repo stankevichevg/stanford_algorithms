@@ -25,7 +25,46 @@ void Graph::addEdge(int s, int e, int length)
 {
     checkNodeExists(s);
     checkNodeExists(e);
-    nodes.find(s)->second.addOutputEdge(Edge(e, length));
+    Edge edge = Edge(s, e, length);
+    nodes.find(s)->second.addOutputEdge(edge);
+    nodes.find(e)->second.addInputEdge(edge);
+}
+
+void Graph::removeNode(int id)
+{
+    if (nodes.find(id) != nodes.end()) {
+        this->nodes.erase(id);
+    }
+}
+
+void Graph::removeEdges(int s, int e)
+{
+    Node* startNode = getNode(s);
+    Node* endNode = getNode(e);
+    auto it = startNode->getOutputEdges()->begin();
+    while (it != startNode->getOutputEdges()->end())
+    {
+        if (it->getEndNode() == e)
+        {
+            it = startNode->getOutputEdges()->erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
+    it = endNode->getInputEdges()->begin();
+    while (it != endNode->getInputEdges()->end())
+    {
+        if (it->getStartNode() == s)
+        {
+            it = endNode->getInputEdges()->erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+    }
 }
 
 void Graph::addEdge(int s, int e)
@@ -55,7 +94,7 @@ Graph Graph::revert()
     {
         int nodeId = nodeIt->first;
         Node node = nodeIt->second;
-        for (Edge & edge : node.getOutputEdges()) {
+        for (Edge & edge : *node.getOutputEdges()) {
             revertedGraph.addEdge(edge.getEndNode(), nodeId, edge.getLength());
         }
     }

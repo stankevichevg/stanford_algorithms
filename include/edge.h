@@ -3,10 +3,12 @@
 
 class Edge {
 private:
+    int startNode;
     int endNode;
     int length;
 public:
-    Edge(int endNode, int length);
+    Edge(int startNode, int endNode, int length);
+    int getStartNode() const;
     int getEndNode() const;
     int getLength() const;
 };

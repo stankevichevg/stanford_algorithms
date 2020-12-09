@@ -20,3 +20,6 @@ target_include_directories(median PRIVATE include)
 
 add_executable (quicksort ${SOURCES} assignments/quicksort.cpp)
 target_include_directories(quicksort PRIVATE include)
+
+add_executable (mincut ${SOURCES} assignments/mincut.cpp)
+target_include_directories(mincut PRIVATE include)
