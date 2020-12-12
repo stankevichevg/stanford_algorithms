@@ -23,3 +23,6 @@ target_include_directories(quicksort PRIVATE include)
 
 add_executable (mincut ${SOURCES} assignments/mincut.cpp)
 target_include_directories(mincut PRIVATE include)
+
+add_executable (twosum ${SOURCES} assignments/twosum.cpp)
+target_include_directories(twosum PRIVATE include)
