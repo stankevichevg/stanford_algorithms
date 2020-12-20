@@ -26,3 +26,9 @@ target_include_directories(mincut PRIVATE include)
 
 add_executable (twosum ${SOURCES} assignments/twosum.cpp)
 target_include_directories(twosum PRIVATE include)
+
+add_executable (schedule ${SOURCES} assignments/schedule.cpp)
+target_include_directories(schedule PRIVATE include)
+
+add_executable (prims ${SOURCES} assignments/prims.cpp)
+target_include_directories(prims PRIVATE include)
