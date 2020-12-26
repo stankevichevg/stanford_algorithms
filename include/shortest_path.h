@@ -17,4 +17,21 @@ public:
     void calculate(int startNodeId) override;
 };
 
+class BellmanFordCalculator: public ShortestPathCalculator {
+private:
+    bool cycleDetected = false;
+public:
+    BellmanFordCalculator(Graph *g);
+    void calculate(int startNodeId) override;
+    bool isCycleDetected();
+};
+
+class JohnsonCalculator {
+protected:
+    Graph *graph;
+public:
+    JohnsonCalculator(Graph *g);
+    map<int, map<int, int>> calculate();
+};
+
 #endif //STANFORD_ALGORITHMS_SHORTEST_PATH_H

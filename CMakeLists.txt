@@ -32,3 +32,6 @@ target_include_directories(schedule PRIVATE include)
 
 add_executable (prims ${SOURCES} assignments/prims.cpp)
 target_include_directories(prims PRIVATE include)
+
+add_executable (all_pairs_shortest_path ${SOURCES} assignments/all_pairs_shortest_path.cpp)
+target_include_directories(all_pairs_shortest_path PRIVATE include)

@@ -107,3 +107,20 @@ void Graph::markAllNodesNotVisited() {
         getNode(node.first)->markNotVisited();
     }
 }
+
+Graph Graph::copy()
+{
+    Graph graphCopy;
+    for (auto node : this->getAllNodes())
+    {
+        graphCopy.addNode(node.first);
+    }
+    for (auto node : this->getAllNodes())
+    {
+        for (Edge edge : *node.second.getOutputEdges())
+        {
+            graphCopy.addEdge(edge.getStartNode(), edge.getEndNode(), edge.getLength());
+        }
+    }
+    return graphCopy;
+}

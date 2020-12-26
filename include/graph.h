@@ -21,6 +21,7 @@ public:
     map<int, Node> getAllNodes();
     Graph revert();
     void markAllNodesNotVisited();
+    Graph copy();
 };
 
 #endif

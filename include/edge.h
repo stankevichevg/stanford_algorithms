@@ -10,7 +10,8 @@ public:
     Edge(int startNode, int endNode, int length);
     int getStartNode() const;
     int getEndNode() const;
-    int getLength() const;
+    int getLength();
+    void setLength(int length);
 };
 
 #endif //STANFORD_ALGORITHMS_EDGE_H
