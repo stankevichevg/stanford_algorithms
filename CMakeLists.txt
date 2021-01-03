@@ -38,3 +38,6 @@ target_include_directories(all_pairs_shortest_path PRIVATE include)
 
 add_executable (clustering ${SOURCES} assignments/clustering.cpp)
 target_include_directories(clustering PRIVATE include)
+
+add_executable (tsp ${SOURCES} assignments/tsp.cpp)
+target_include_directories(tsp PRIVATE include)
