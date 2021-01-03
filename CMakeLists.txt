@@ -41,3 +41,6 @@ target_include_directories(clustering PRIVATE include)
 
 add_executable (tsp ${SOURCES} assignments/tsp.cpp)
 target_include_directories(tsp PRIVATE include)
+
+add_executable (mwis ${SOURCES} assignments/mwis.cpp)
+target_include_directories(mwis PRIVATE include)
