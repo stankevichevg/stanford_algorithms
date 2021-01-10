@@ -47,3 +47,6 @@ target_include_directories(mwis PRIVATE include)
 
 add_executable (knapsack ${SOURCES} assignments/knapsack.cpp)
 target_include_directories(knapsack PRIVATE include)
+
+add_executable (tsp_nn ${SOURCES} assignments/tsp_nn.cpp)
+target_include_directories(tsp_nn PRIVATE include)
